@@ -1,5 +1,7 @@
-FROM tomcat
+FROM tomcat:9.0
 MAINTAINER Ma Ping
 
 RUN rm -rf $CATALINA_HOME/webapps/ROOT
-COPY target/calculator.war $CATALINA_HOME/webapps/ROOT.war
+COPY target/calculator-1.1-SNAPSHOT-20250424-1915.war $CATALINA_HOME/webapps/ROOT.war
+
+EXPOSE 8080
