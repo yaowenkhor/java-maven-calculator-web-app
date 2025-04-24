@@ -6,7 +6,6 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
-import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 
 @Path("/calculator")
@@ -44,9 +43,6 @@ public class CalculatorService {
     @Path("div")
     @Produces(MediaType.APPLICATION_JSON)
     public CalculatorResponse Div(@QueryParam("x") int x, @QueryParam("y") int y) {
-        if (y == 0) {
-            throw new WebApplicationException("Your equation cannot divided by zero", 400);
-        }
         return new CalculatorResponse(x, y, x / y);
     }
 
