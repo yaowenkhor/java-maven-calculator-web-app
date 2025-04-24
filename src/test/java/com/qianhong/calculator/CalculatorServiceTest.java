@@ -14,39 +14,39 @@ public class CalculatorServiceTest {
 
     @Test
     public void testAdd() {
-        assertEquals(34, new CalculatorService().Add(8, 26).getResult());
+        assertEquals(34, new CalculatorService().add(8, 26).getResult());
     }
 
     @Test
     public void testSub() {
-        assertEquals(4, new CalculatorService().Sub(12, 8).getResult());
+        assertEquals(4, new CalculatorService().sub(12, 8).getResult());
     }
 
     @Test
     public void testMul() {
-        assertEquals(88, new CalculatorService().Mul(11, 8).getResult());
+        assertEquals(88, new CalculatorService().mul(11, 8).getResult());
     }
 
     @Test
     public void testDiv() {
-        assertEquals(1, new CalculatorService().Div(12, 12).getResult());
+        assertEquals(1, new CalculatorService().div(12, 12).getResult());
     }
   
     @Test
     public void testPow() {
-        assertEquals(8, new CalculatorService().Pow(2, 3).getResult());
+        assertEquals(8, new CalculatorService().pow(2, 3).getResult());
     }
 
     //Test the calculator that errors when any number divided by zero
-    @Test(expected = WebApplicationException.class)  // <- Updated exception type
+    @Test(expected = ArithmeticException.class)  // <- Updated exception type
     public void testDivByZero() {
-        (new CalculatorService()).Div(12, 0).getResult();
+        (new CalculatorService()).div(12, 0).getResult();
     }
 
     //Test the result by add a number with zero
     @Test
     public void testAddWithZero() {
-        assertEquals(8L, (long)(new CalculatorService()).Add(8, 0).getResult());
+        assertEquals(8L, (long)(new CalculatorService()).add(8, 0).getResult());
     }
 
 }
