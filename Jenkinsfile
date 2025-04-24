@@ -1,5 +1,11 @@
 node {
+   // Set up tools
    def mvnHome = tool 'M3'
+   def jdkHome = tool name: 'jdk1.8.0_202', type: 'hudson.model.JDK'
+
+   // Set JAVA_HOME environment variable
+   env.JAVA_HOME = jdkHome
+   env.PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
 
    stage('Checkout Code') { 
       git 'https://github.com/maping/java-maven-calculator-web-app.git'
