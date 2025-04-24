@@ -1,16 +1,14 @@
 package com.qianhong.calculator;
 
 import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
-
-import static org.hamcrest.CoreMatchers.*;
 
 public class CalculatorServiceIT {
 
@@ -57,5 +55,14 @@ public class CalculatorServiceIT {
         HttpResponse response = httpclient.execute(httpGet);
         assertEquals(200, response.getStatusLine().getStatusCode());
         assertThat(EntityUtils.toString(response.getEntity()), containsString("\"result\":1"));
+    }
+
+    @Test
+    public void testPow() throws Exception {
+        CloseableHttpClient httpclient = HttpClients.createDefault();
+        HttpGet httpGet = new HttpGet("http://localhost:9999/calculator/api/calculator/pow?x=2&y=3");
+        HttpResponse response = httpclient.execute(httpGet);
+        assertEquals(200, response.getStatusLine().getStatusCode());
+        assertThat(EntityUtils.toString(response.getEntity()), containsString("\"result\":8"));
     }
 }
