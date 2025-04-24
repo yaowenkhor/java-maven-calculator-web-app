@@ -1,10 +1,9 @@
 package com.qianhong.calculator;
 
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
-
-import static org.hamcrest.CoreMatchers.*;
 
 public class CalculatorServiceTest {
 
@@ -31,5 +30,10 @@ public class CalculatorServiceTest {
     @Test
     public void testDiv() {
         assertEquals(1, new CalculatorService().Div(12, 12).getResult());
+    }
+
+    @Test
+    public void testPow() {
+        assertEquals(8, new CalculatorService().Pow(2, 3).getResult());
     }
 }
