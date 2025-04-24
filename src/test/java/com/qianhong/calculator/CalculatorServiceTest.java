@@ -31,9 +31,22 @@ public class CalculatorServiceTest {
     public void testDiv() {
         assertEquals(1, new CalculatorService().Div(12, 12).getResult());
     }
-
+  
     @Test
     public void testPow() {
         assertEquals(8, new CalculatorService().Pow(2, 3).getResult());
     }
+
+    //Test the calculator that errors when any number divided by zero
+    @Test(expected = WebApplicationException.class)  // <- Updated exception type
+    public void testDivByZero() {
+        (new CalculatorService()).Div(12, 0).getResult();
+    }
+
+    //Test the result by add a number with zero
+    @Test
+    public void testAddWithZero() {
+        assertEquals(8L, (long)(new CalculatorService()).Add(8, 0).getResult());
+    }
+
 }
