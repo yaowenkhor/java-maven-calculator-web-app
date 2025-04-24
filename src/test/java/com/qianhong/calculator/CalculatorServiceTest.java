@@ -38,7 +38,7 @@ public class CalculatorServiceTest {
     }
 
     //Test the calculator that errors when any number divided by zero
-    @Test(expected = WebApplicationException.class)  // <- Updated exception type
+    @Test(expected = ArithmeticException.class)  // <- Updated exception type
     public void testDivByZero() {
         (new CalculatorService()).Div(12, 0).getResult();
     }
