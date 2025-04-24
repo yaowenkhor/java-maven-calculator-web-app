@@ -4,24 +4,24 @@ import java.util.Date;
 
 public class CalculatorResponse {
 
-    int _x;
-    int _y;
+    int _operand1;
+    int _operand2;
     int _result;
     String _time;
 
     public CalculatorResponse(int x, int y, int result) {
-        _x = x;
-        _y = y;
+    	_operand1 = x;
+    	_operand2 = y;
         _result = result;
         _time = new Date().toString();
     }
 
-    public int getX() {
-        return _x;
+    public int getOperand1() {
+        return _operand1;
     }
 
-    public int getY() {
-        return _y;
+    public int getOperand2() {
+        return _operand2;
     }
 
     public int getResult() {
