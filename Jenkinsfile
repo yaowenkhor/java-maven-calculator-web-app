@@ -1,16 +1,13 @@
 node {
-   // Set up tools
-   def mvnHome = tool 'M3'
-   def jdkHome = tool name: 'jdk1.8.0_202', type: 'hudson.model.JDK'
-
-   // Set JAVA_HOME environment variable
-   env.JAVA_HOME = jdkHome
-   env.PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
-
-   stage('Checkout Code') { 
-      git 'https://github.com/maping/java-maven-calculator-web-app.git'
-   }
-   stage('JUnit Test') {
+    def mvnHome = tool 'M3'
+    
+    stage('Checkout Code') {
+        git credentialsId: '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',
+            url: 'https://github.com/yaowenkhor/java-maven-calculator-web-app.git',
+            branch: 'master'
+    }
+    
+  stage('JUnit Test') {
       if (isUnix()) {
          sh "'${mvnHome}/bin/mvn' clean test"
       } else {
@@ -24,16 +21,7 @@ node {
          bat(/"${mvnHome}\bin\mvn" integration-test/)
       }
    }
- /*
    stage('Performance Test') {
-      if (isUnix()) {
-         sh "'${mvnHome}/bin/mvn' cargo:start verify cargo:stop"
-      } else {
-         bat(/"${mvnHome}\bin\mvn" cargo:start verify cargo:stop/)
-      }
-   }
-  */
-  stage('Performance Test') {
       if (isUnix()) {
          sh "'${mvnHome}/bin/mvn' verify"
       } else {
@@ -47,4 +35,3 @@ node {
       echo 'Deploy...'
    }
 }
-   
