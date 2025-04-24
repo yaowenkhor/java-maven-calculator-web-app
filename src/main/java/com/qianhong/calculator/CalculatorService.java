@@ -21,35 +21,35 @@ public class CalculatorService {
     @GET
     @Path("add")
     @Produces(MediaType.APPLICATION_JSON)
-    public CalculatorResponse Add(@QueryParam("x") int x, @QueryParam("y") int y) {
+    public CalculatorResponse add(@QueryParam("x") int x, @QueryParam("y") int y) {
         return new CalculatorResponse(x, y, x + y);
     }
 
     @GET
     @Path("sub")
     @Produces(MediaType.APPLICATION_JSON)
-    public CalculatorResponse Sub(@QueryParam("x") int x, @QueryParam("y") int y) {
+    public CalculatorResponse sub(@QueryParam("x") int x, @QueryParam("y") int y) {
         return new CalculatorResponse(x, y, x - y);
     }
 
     @GET
     @Path("mul")
     @Produces(MediaType.APPLICATION_JSON)
-    public CalculatorResponse Mul(@QueryParam("x") int x, @QueryParam("y") int y) {
+    public CalculatorResponse mul(@QueryParam("x") int x, @QueryParam("y") int y) {
         return new CalculatorResponse(x, y, x * y);
     }
 
     @GET
     @Path("div")
     @Produces(MediaType.APPLICATION_JSON)
-    public CalculatorResponse Div(@QueryParam("x") int x, @QueryParam("y") int y) {
+    public CalculatorResponse div(@QueryParam("x") int x, @QueryParam("y") int y) {
         return new CalculatorResponse(x, y, x / y);
     }
 
     @GET
     @Path("pow")
     @Produces(MediaType.APPLICATION_JSON)
-    public CalculatorResponse Pow(@QueryParam("x") int x, @QueryParam("y") int y) {
+    public CalculatorResponse pow(@QueryParam("x") int x, @QueryParam("y") int y) {
         return new CalculatorResponse(x, y, (int) Math.pow(x, y));
     }
 }
