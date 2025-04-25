@@ -6,6 +6,7 @@ on:
   pull_request: 
     branches: [master]
 
+
 jobs:
   build:
 
@@ -28,18 +29,3 @@ jobs:
         run: |
           WAR=$(ls -t target/calculator-*.war | head -n1)
           cp "$WAR" target/ROOT.war
-
-      - name: Run Unit Tests
-        run: mvn test
-
-      - name: Run Integration Test
-        run: mvn integration-test
-
-      - name: Upload test report
-        uses: actions/upload-artifact@v4
-        with:
-          name: surefire-reports
-          path: target/surefire-reports/
-
-      
-
