@@ -31,3 +31,12 @@ jobs:
         with:
           name: surefire-reports
           path: target/surefire-reports/
+      
+      - name: Generate Code Coverage Report
+        run: mvn cobertura:cobertura
+
+      - name: Upload Code Coverage Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: code-coverage-report
+          path: target/site/cobertura/
