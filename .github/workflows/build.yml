@@ -29,3 +29,9 @@ jobs:
         run: |
           WAR=$(ls -t target/calculator-*.war | head -n1)
           cp "$WAR" target/ROOT.war
+      
+      - name: Upload WAR file for docker deployment
+        uses: actions/upload-artifact@v4
+        with:
+          name: ROOT-war
+          path: target/ROOT.war
