@@ -58,7 +58,7 @@ public class CalculatorServiceIT {
     }
 
     @Test
-    public void testPow() throws Exception {
+    public void testpow() throws Exception {
         CloseableHttpClient httpclient = HttpClients.createDefault();
         HttpGet httpGet = new HttpGet("http://localhost:9999/calculator/api/calculator/pow?x=2&y=3");
         HttpResponse response = httpclient.execute(httpGet);

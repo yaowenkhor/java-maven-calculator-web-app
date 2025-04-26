@@ -31,10 +31,10 @@ public class CalculatorServiceTest {
     public void testDiv() {
         assertEquals(1, new CalculatorService().div(12, 12).getResult());
     }
-  
+
     @Test
-    public void testPow() {
-        assertEquals(8, new CalculatorService().pow(2, 3).getResult());
+    public void testpow() {
+        assertEquals(8, new CalculatorService().Pow(2, 3).getResult());
     }
 
     //Test the calculator that errors when any number divided by zero
@@ -46,7 +46,7 @@ public class CalculatorServiceTest {
     //Test the result by add a number with zero
     @Test
     public void testAddWithZero() {
-        assertEquals(8L, (long)(new CalculatorService()).add(8, 0).getResult());
+        assertEquals(8L, (long) (new CalculatorService()).add(8, 0).getResult());
     }
 
 }

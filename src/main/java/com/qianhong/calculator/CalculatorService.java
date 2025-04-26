@@ -49,7 +49,7 @@ public class CalculatorService {
     @GET
     @Path("pow")
     @Produces(MediaType.APPLICATION_JSON)
-    public CalculatorResponse pow(@QueryParam("x") int x, @QueryParam("y") int y) {
+    public CalculatorResponse Pow(@QueryParam("x") int x, @QueryParam("y") int y) {
         return new CalculatorResponse(x, y, (int) Math.pow(x, y));
     }
 }
